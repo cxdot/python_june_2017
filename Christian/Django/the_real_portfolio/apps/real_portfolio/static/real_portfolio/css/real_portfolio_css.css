@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+#wrapper{
+    width: 970px;
+    margin: 0px auto;
+    background-color: black;
+    color: lime;
+    padding: 10px;
+}
+h1, h2 {
+	text-align: center;
+}
+a {
+	margin-right: 120px;
+	margin-left: 120px;
+	color: blue;
+}
+.textbox {
+	border: 2px solid white;
+	display: inline-block;
+	width: 300px;
+	height: 90px;
+	vertical-align: top;
+	margin-left: 10px;
+
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+<body>
+    
+    <p>Visited {{session['count']}} times</p>
+
+    <form action = "/plus2" method = 'post'>
+    	<button> add 2</button>
+    </form>
+
+    <form action = '/reset' method ='post'>
+    	<button>Reset</button>
+    </form>
+</body>
+</html>

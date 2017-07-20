@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		   {% load staticfiles %}
+		  <link rel="stylesheet" href="{% static 'real_portfolio/css/real_portfolio_css.css' %}" media="screen" title="no title"  charset="utf-8">
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<h1>Hi, I'm Christian!</h1>
+			<h2>Whale cum to My Portfolio</h2>
+
+			<a href="/projects">Projects</a>
+			<a href="/aboutme">About Me</a>
+			<a href="/testimonials">Testimonials</a>
+
+			<div id="sections">
+				<div class="textbox"><p>I have a variety of projects both personal and contract. They are built using Python, Swift, and Javascript.</p></div>
+				<div class="textbox"><p>A little about my background and why I do what I do.</p></div>
+				<div class="textbox"><p>What my clients and mentors have to say about my projects and work ethic.</p></div>
+			</div>
+		</div>
+	</body>
+</html>

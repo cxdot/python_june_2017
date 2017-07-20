@@ -1,0 +1,8 @@
+1) installs modules
+2)lists installed packages
+3)shows the file is already downloaded
+4)installed packages in requirements format
+5)installed modules and versions
+6)uninstalls the module 
+7)shows the info of that module
+8)shows a directory

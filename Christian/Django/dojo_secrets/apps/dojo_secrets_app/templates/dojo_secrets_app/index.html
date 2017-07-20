@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Template</title>
+	</head>
+	<body>
+
+		{% if messages %}
+	    <ul class="messages">
+	      {% for message in messages %}
+	        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	      {% endfor %}
+	    </ul>
+	  {% endif %}
+
+    <h2>Registration</h2>
+		<form action="{%url 'register' %}" method='post'>
+			{% csrf_token %}
+			<label>First Name:</label><br>
+			<input type='text' name='first_name'>
+			<br>
+			<label>Last Name:</label><br>
+			<input type='text' name='last_name'>
+			<br>
+			<label>Email:</label><br>
+			<input type='email' name='email'>
+			<br>
+			<label>Password:</label><br>
+			<input type='password' name='password'>
+			<br>
+			<label>Confirm Password:</label><br>
+			<input type='password' name='confirm_password'>
+			<br>
+			<input type='submit' value='Register'>
+		</form>
+
+		<h2>Login:</h2>
+		<form action="{%url 'login' %}" method='post'>
+			{% csrf_token %}
+			<label>Email:</label><br>
+			<input type='text' name='email'/><br><br>
+			<label>Password:</label><br>
+			<input type='text' name='password'/><br><br>
+			<input type='submit' value='Login'/>
+		</form>
+
+	</body>
+</html>

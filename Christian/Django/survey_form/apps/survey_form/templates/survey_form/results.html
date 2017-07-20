@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Results</title>
+	</head>
+	<body>
+		<div>
+			<p>Thanks for submitting this form! You have submitted this form {{ x }} times now.</p>
+		 <h3>Submitted Information</h3>
+			<p>Name: {{ request.session.name }}</p>
+			<p>Dojo Location: {{ request.session.location }}</p>
+			<p>Favorite Language: {{ request.session.language }}</p>
+			{% if request.session.comment != '' %}
+				<p>Comment: {{ request.session.comment }}</p><br><br>
+			{% endif %}
+
+			<form action='/' method='post'>
+				{% csrf_token %}
+				<input type='submit' value='Go Back'>
+			</form>
+
+			<form action='/reset' method='post'>
+				{% csrf_token %}
+				<input type="submit" name="reset" value="Reset">
+			</form>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Courses</title>
+	</head>
+	<body>
+
+	<div>
+		<h3>Add a new course</h3>
+
+		<form action='/process' method='post'>
+			{% csrf_token %}
+			<label>Name:</label><br>
+			<input name="name" type='text'><br><br>
+			<label>Description:</label><br>
+			<textarea name='description'></textarea><br><br>
+			<input type='submit' value='Add'>
+		</form>
+
+		<h3>Courses</h3>
+			<table border='2px solid black'>
+				<tr>
+					<th>Courses Name</th>
+					<th>Description</th>
+					<th>Date Added</th>
+					<th>Actions</th>
+				</tr>
+				<tr>
+			{% for course in courses %}
+					<td> {{ course.course_name }}</td>
+					<td> {{ course.description }}</td>
+					<td> {{ course.created_at }}</td>
+					<td>
+						<form action='/destroy/{{course.id}}' method='post'>
+							{% csrf_token %}
+						<input type='submit' value="Remove">
+					</form>
+					</td>
+				</tr>
+			{% endfor %}
+
+			</table>
+	</div>
+
+	</body>
+</html>

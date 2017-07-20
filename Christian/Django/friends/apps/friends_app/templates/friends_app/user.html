@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <a href="{% url 'friends' %}">Home</a>
+      <a href="{% url 'logout' %}">Logout</a>
+      <p>Profile</p>
+
+      <p>Name: {{ user.name }}</p>
+      <p>Email: {{ user.email }}</p>
+    </div>
+  </body>
+</html>
