@@ -40,9 +40,8 @@ def login(request):
         check = User.objects.login(form_data)
 
         if type(check) == type(User()):
-            request.session['user_id'] = check.id
+
             return redirect('/success')
-            
         print check
     return redirect('/')
 
