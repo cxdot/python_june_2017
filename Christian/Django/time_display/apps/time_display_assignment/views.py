@@ -10,7 +10,6 @@ from datetime import datetime
 
 def index(request):
 
-
 	context = {
 	"time":datetime.now()
 	}
