@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<title>Random Word App</title>
+	</head>
+	<body>
+		<div class="container">
+			<h3>Random Word (attempt # {{ request.session.attempt }} )</h3>
+			<p>{{ request.session.word }}</p>
+			<form action="/generate" method="POST">
+				{% csrf_token %}
+				<button type="submit" class="btn btn-primary">Generate</button>
+			</form>
+			<form action="/random_word/reset" method="POST">
+				 {% csrf_token %}
+				<button type="submit" class="btn btn-danger">Reset</button>
+			</form>
+		</div>
+	</body>
+</html>
