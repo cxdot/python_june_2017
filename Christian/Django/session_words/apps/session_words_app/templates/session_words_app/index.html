@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'session_word_app/css/words.css' %}" media="screen" title="no title" charset="utf-8">	
+	<title>Words</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			 {% if messages %} 
+			 	{% for message in messages %}
+					<p class="alert alert-danger">{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+			<!-- begin left column -->
+			<div class="col-sm-4">
+				<form action="/new_word" method="POST">
+					{% csrf_token %}
+					<h3>Add a new word</h3>
+					<div class="form-group">
+						<input type="text" class="form-control" name="word">
+					</div>
+					<h4>Choose color</h4>
+					<div class="radio">
+						<label><input checked="checked" type="radio" name="color" value="red">Red</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="color" value="blue">Blue</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="color" value="green">Green</label>
+					</div>
+					<div class="checkbox">
+						<label><input type="checkbox" name="big">Show in BIG fonts!</label>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Add to Session</button>
+					</div>
+				</form>
+			</div>
+			<!-- end left column -->
+
+			<div class="col-sm-1">&nbsp;</div>
+
+			<!-- begin right column -->
+			<div class="col-sm-4">
+					<form action="/clear" method="POST">
+						{% csrf_token %}
+						<div class="form-group"> 
+							<button input="submit" class="btn btn-danger">Clear Session</button>					
+						</div>
+					</form>
+					<div>
+						{% if request.session.words %} 
+							{% for word in request.session.words %}
+								<p><span class="{{ word.font_size }}" style="color: {{ word.color }}">{{ word.word }}</span>
+								- added on {{ word.time }}</p>
+							{% endfor %} 
+						{% endif %}
+					</div>
+			</div>
+			<!-- end left column -->
+		</div>
+	</div>
+</body>
+</html>
