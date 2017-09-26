@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<title>Amadon</title>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Amadon Store</h2>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Price</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in items %}
+					<tr>
+						<td>{{ item.name }}</td>
+						<td>${{ item.price }}</td>
+						<td>
+							<form action="/amadon/buy/{{ item.id }}" method="POST">
+								{% csrf_token %}
+								<div class="form-group">
+									<select name="quantity" class="form-control">
+										<option>1</option>
+										<option>2</option>
+										<option >3</option>
+									</select>
+									<button type="submit" class="btn btn-default">Buy!</button>
+								</div>
+							</form>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
